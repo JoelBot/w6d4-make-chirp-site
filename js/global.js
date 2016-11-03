@@ -11,5 +11,5 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/signin" component={Signin} />
     </Router>
-    ,document.getElementById('appContainer')
+    ,document.getElementById('chirp')
 )
