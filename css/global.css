@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+#homePage {
+  margin-top: 80px;
+}
+
+#homePage img {
+  width: 50%;
+  margin-left: 180px;
+}
+
+#homePage button {
+  margin-top: 30px;
+}
