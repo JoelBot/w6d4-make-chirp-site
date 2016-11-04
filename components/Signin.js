@@ -27,10 +27,8 @@ class Signin extends React.Component {
     signedinHandler(response) {
       sessionStorage.setItem('chirp_token', response.user.api_token)
       window.location.href = '/chirp.html'
-    //   console.log(response)
     }
     render() {
-        console.log(this.state.email)
         return  <div className="row">
                 <div className="col-sm-6 col-sm-offset-3">
                     <div className="form-group">
