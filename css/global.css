@@ -6,6 +6,18 @@ img {
   width: 100%;
 }
 
+body {
+  background-color: #F5F8FA;
+}
+
+.navbar img {
+  width: 40px;
+}
+
+.navbar button {
+  padding: 7px;
+}
+
 #homePage {
   margin-top: 80px;
 }
@@ -17,4 +29,13 @@ img {
 
 #homePage button {
   margin-top: 30px;
+}
+
+.middle-section {
+  padding-top: 60px;
+}
+
+.middle-section img {
+  background: #7A4FBC;
+  border-radius: 10px;
 }
