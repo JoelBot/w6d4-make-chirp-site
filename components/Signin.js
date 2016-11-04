@@ -11,7 +11,7 @@ class Signin extends React.Component {
         }
     }
     signinHandler() {
-      fetch('http://f5ebc883.ngrok.io/log_in', {
+      fetch('https://nameless-cove-75673.herokuapp.com/log_in', {
         body: JSON.stringify({
           email: this.state.email,
           password: this.state.password
