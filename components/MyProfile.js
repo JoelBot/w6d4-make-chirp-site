@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Nav from '../components/Nav'
 import Avatar from '../components/Avatar'
 import WhoToFollow from '../components/WhoToFollow'
+import Chirps from '../components/Chirps'
 
 class MyProfile extends React.Component {
     constructor(props){
@@ -27,18 +28,8 @@ class MyProfile extends React.Component {
                         </div>
             <br />
             <div className="col-sm-6">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="What's Happening?" />
-                <span className="input-group-btn">
-                    <button className="btn btn-default" type="button">Chirp</button>
-                </span>
-              </div>
-              <ul className="list-group">
-                <li className="list-group-item">test</li>
-                <li className="list-group-item">test</li>
-                <li className="list-group-item">test</li>
-                <li className="list-group-item">test</li>
-              </ul>
+                <Chirps />
+
                 </div>
 
               <div className="col-sm-3 well">
