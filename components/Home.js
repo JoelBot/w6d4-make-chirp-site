@@ -12,23 +12,22 @@ class Home extends React.Component {
 
     render() {
         return  <div>
-                    <Nav />
-        <div id="homePage" className="row">
-                    <div className="col-sm-12 text-center">
-                        <img src="./img/chirp-logo.png" alt="Logo Pic" />
+                    <div id="homePage" className="row">
+                        <div className="col-sm-12 text-center">
+                            <img src="./img/chirp-logo.png" alt="Logo Pic" />
+                        </div>
+                        <div className="col-sm-6 text-center">
+                            <Link to="/signin">
+                            <button id="signin" type="button" className="btn btn-primary btn-block" >SignIn</button>
+                            </Link>
+                        </div>
+                        <div className="col-sm-6">
+                            <Link to="/signup">
+                            <button id="signup" type="button" className="btn btn-success btn-block" >SignUp</button>
+                            </Link>
+                        </div>
                     </div>
-                    <div className="col-sm-6 text-center">
-                        <Link to="/signin">
-                        <button id="signin" type="button" className="btn btn-primary btn-block" >SignIn</button>
-                        </Link>
-                    </div>
-                    <div className="col-sm-6">
-                        <Link to="/signup">
-                        <button id="signup" type="button" className="btn btn-success btn-block" >SignUp</button>
-                        </Link>
-                    </div>
-                    </div>
-                    </div>
+                </div>
 
     }
 }

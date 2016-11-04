@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Nav from '../components/Nav'
+import Avatar from '../components/Avatar'
+import WhoToFollow from '../components/WhoToFollow'
 
 class MyProfile extends React.Component {
     constructor(props){
@@ -12,18 +14,16 @@ class MyProfile extends React.Component {
                 <div className="container middle-section">
                     <div className="row">
                         <div className="col-sm-3">
+                            <Avatar />
                             <div className="well">
-                                <img src="http://robohash.org/mani" alt="" />
+                                <h3>#Trending TV Shows</h3>
+                                <ul>
+                                    <li>#Game of Thrones</li>
+                                    <li>#Ballers</li>
+                                    <li>#Walking Dead</li>
+                                    <li>#Westworld</li>
+                                </ul>
                             </div>
-                        <div className="well">
-                        <h3>#Trending TV Shows</h3>
-                        <ul>
-                            <li>#Game of Thrones</li>
-                            <li>#Ballers</li>
-                            <li>#Walking Dead</li>
-                            <li>#Westworld</li>
-                        </ul>
-                        </div>
                         </div>
             <br />
             <div className="col-sm-6">
@@ -42,12 +42,7 @@ class MyProfile extends React.Component {
                 </div>
 
               <div className="col-sm-3 well">
-                <ul className="list-group">
-                  <li className="list-group-item"><h3>Who to follow</h3></li>
-                  <li className="list-group-item">@Dwayne Johnson</li>
-                  <li className="list-group-item">@Kobe Bryant</li>
-                  <li className="list-group-item">@The Iron Yard</li>
-                </ul>
+                <WhoToFollow />
               </div>
             </div>
           </div>
