@@ -45,7 +45,7 @@ class Signup extends React.Component {
         if (typeof response.user != 'undefined') {
             sessionStorage.setItem('chirp_token', response.user.api_token)
 
-            window.location.href = '/' // redirects after login update to displaying chirp
+            window.location.href = '/chirp.html' // redirects after login update to displaying chirp
         }
         else {
             response.forEach(function(error) {
