@@ -3,7 +3,8 @@ import React from 'react'
 class Signup extends React.Component {
     constructor(props) {
         super(props)
-        this.sendUserData = this.sendUserData.bind(this)
+        this.signUpPost = this.signUpPost.bind(this)
+        this.signedupHandler = this.signedupHandler.bind(this)
         this.state =  {
             name: '',
             email: '',
@@ -12,7 +13,7 @@ class Signup extends React.Component {
             }
     }
 
-    sendUserData() {
+    signUpPost() {
         var data = new FormData()  // Check if append is needed here and place API calls here.
         // data.append('name', this.state.name)
         data.name = this.state.name
@@ -23,6 +24,41 @@ class Signup extends React.Component {
         // data.append('password', this.state.password)
         // data.append('avatar', this.state.avatar)
         console.log(data)
+//
+        // fetch('http://f5ebc883.ngrok.io/users', { // Update this
+        //     body: JSON.stringify({
+        //         name: data.name,
+        //         email: data.email,
+        //         password: data.password,
+        //         avatar: data.avatar
+        //     }),
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        // .then(response => response.json())
+        // .then(signedupHandler)
+    }
+    // signedupHandler(response) {
+    //     // console.log(response) // this to see the token
+    //     if {typeof response.user != 'undefined') {
+    //         sessionStorage.setItem('phetchly', response.user.api_token)
+    //
+    //         window.location.href = '/home' // redirects after login update to displaying chirp
+    //     }}
+    //     else {
+    //         response.forEach(function(error) {
+    //             var errorDiv = document.createElement('div')
+    //             errorDiv.classList.add('alert', 'alert-danger')
+    //             errorDiv.innerHTML = error
+    //             document.querySelector('#errors').appendChild(errorDiv)
+    //         })
+    //     }
+    // }
+
+    //
+
     }
 
     render() {
@@ -49,7 +85,7 @@ class Signup extends React.Component {
         <div className="form-group">
         <div className="row">
         <div className="col-sm-6">
-        <button type="button" onClick={this.sendUserData} id="signup" className="btn btn-success btn-block" >Signup!</button>
+        <button type="button" onClick={this.signUpPost} id="signup" className="btn btn-success btn-block" >Signup!</button>
         </div>
         <div className="col-sm-6">
         <button type="button" id="cancelSignup" className="btn btn-primary btn-block">Cancel</button>
