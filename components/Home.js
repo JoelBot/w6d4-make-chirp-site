@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Nav from '../components/Nav'
+
 
 
 class Home extends React.Component {
@@ -9,7 +11,9 @@ class Home extends React.Component {
     }
 
     render() {
-        return   <div id="homePage" className="row">
+        return  <div>
+                    <Nav />
+        <div id="homePage" className="row">
                     <div className="col-sm-12 text-center">
                         <img src="./img/chirp-logo.png" alt="Logo Pic" />
                     </div>
@@ -24,6 +28,8 @@ class Home extends React.Component {
                         </Link>
                     </div>
                     </div>
+                    </div>
+
     }
 }
 
