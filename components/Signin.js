@@ -5,6 +5,7 @@ class Signin extends React.Component {
         super(props)
         this.signinHandler = this.signinHandler.bind(this)
         this.signedinHandler = this.signedinHandler.bind(this)
+        this.enter = this.enter.bind(this)
         this.state = {
             email: '',
             password: ''
@@ -28,6 +29,13 @@ class Signin extends React.Component {
       sessionStorage.setItem('chirp_token', response.user.api_token)
       window.location.href = '/myprofile'
     }
+
+    enter(e) {
+        if (e.key === 'Enter') {
+            this.signinHandler()
+        }
+    }
+
     render() {
         return  <div className="row">
                 <div className="col-sm-6 col-sm-offset-3">
@@ -38,7 +46,7 @@ class Signin extends React.Component {
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input id="signinPassword" type="password"  onChange={(e) => this.setState({password:e.target.value})} className="password" className="form-control" required/>
+                    <input id="signinPassword" type="password"  onChange={(e) => this.setState({password:e.target.value})} className="password" className="form-control" onKeyPress={this.enter} required/>
                 </div>
                 <div className="row">
                   <div className="col-sm-6">

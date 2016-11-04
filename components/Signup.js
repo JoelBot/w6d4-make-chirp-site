@@ -15,7 +15,7 @@ class Signup extends React.Component {
 
     signupPost() {
         var data = new FormData()
-        data.append('file', this.state.avatar)
+        data.append('avatar', this.state.avatar)
         data.append('name', this.state.name)
         data.append('email', this.state.email)
         data.append('password', this.state.password)
