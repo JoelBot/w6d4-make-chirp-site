@@ -12,7 +12,7 @@ class MyProfile extends React.Component {
     render(){
         return <div>
                 <Nav />
-                <div className="container middle-section">
+                <div className="container middle-left-section">
                     <div className="row">
                         <div className="col-sm-3">
                             <Avatar />
