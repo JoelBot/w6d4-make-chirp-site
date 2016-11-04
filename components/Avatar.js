@@ -8,19 +8,19 @@ class Avatar extends React.Component {
         }
     }
     componentDidMount(){
-        fetch('http://f5ebc883.ngrok.io/users/me')
+        fetch('https://nameless-cove-75673.herokuapp.com/user/me?api_token=' + sessionStorage.getItem('chirp_token'))
         .then(response => response.json())
         .then((response) => {
 
           console.log(response)
           this.setState({
-            avatar: response.avatar
+            avatar: response.user.avatar
           })
         })
     }
     render(){
         return  <div className="well">
-                    <img src={this.state.avatar} alt="user avatar" />
+                    <img src={this.state.avatar} alt="" />
                 </div>
     }
 }

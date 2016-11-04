@@ -20,7 +20,7 @@ class Signup extends React.Component {
         data.append('email', this.state.email)
         data.append('password', this.state.password)
 
-        fetch('http://f5ebc883.ngrok.io/users', { // Update this
+        fetch('https://nameless-cove-75673.herokuapp.com/users', { // Update this
                 method: 'POST',
                 body: data
         })

@@ -31,11 +31,23 @@ body {
   margin-top: 30px;
 }
 
-.middle-section {
+.middle-left-section {
   padding-top: 60px;
 }
 
-.middle-section img {
+.middle-left-section img {
   background: #7A4FBC;
   border-radius: 10px;
+}
+
+.chirpitem {
+  margin-top: 5px;
+}
+
+.av-logo {
+  width: 50px;
+}
+
+.chirp-item-top-section {
+  display: inline-block;
 }
