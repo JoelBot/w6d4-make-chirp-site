@@ -30,7 +30,7 @@ class MyProfile extends React.Component {
             <div className="col-sm-6">
                 <Chirps />
 
-                </div>
+            </div>
 
               <div className="col-sm-3 well">
                 <WhoToFollow />

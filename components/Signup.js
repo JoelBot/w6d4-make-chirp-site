@@ -14,28 +14,15 @@ class Signup extends React.Component {
     }
 
     signupPost() {
-        // var data = new FormData()  // Check if append is needed here and place API calls here.
-        // data.append('name', this.state.name)
-        // data.name = this.state.name
-        // data.email = this.state.email
-        // data.password = this.state.password
-        // data.avatar = this.state.avatar
-        // data.append('email', this.state.email)
-        // data.append('password', this.state.password)
-        // data.append('avatar', this.state.avatar)
-        // console.log(data)
-//
+        var data = new FormData()
+        data.append('file', this.state.avatar)
+        data.append('name', this.state.name)
+        data.append('email', this.state.email)
+        data.append('password', this.state.password)
+
         fetch('http://f5ebc883.ngrok.io/users', { // Update this
-            body: JSON.stringify({
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                avatar: this.state.avatar
-            }),
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+                method: 'POST',
+                body: data
         })
         .then(response => response.json())
         .then(this.signedupHandler)
@@ -45,7 +32,7 @@ class Signup extends React.Component {
         if (typeof response.user != 'undefined') {
             sessionStorage.setItem('chirp_token', response.user.api_token)
 
-            window.location.href = '/chirp.html' // redirects after login update to displaying chirp
+            window.location.href = '/myprofile' // redirects after login update to displaying chirp
         }
         else {
             response.forEach(function(error) {

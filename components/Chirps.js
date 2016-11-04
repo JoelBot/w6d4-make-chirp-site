@@ -50,9 +50,8 @@ class Chirps extends Component {
             return <Chirp data={chirp} key={i}/>})
 
         return (
-            <div className="input-group">
-                <br />
-                <input type="text" className="form-control" onChange={this.typing} onKeyPress={this.enter} />
+            <div className="input-group form-control">
+                <input type="text" className="form-control" value={this.state.newChirp} onChange={this.typing} onKeyPress={this.enter} />
                 <ul className="list-group">
                     {ChirpItems}
                 </ul>
