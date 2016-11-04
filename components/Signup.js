@@ -40,7 +40,7 @@ class Signup extends React.Component {
         // .then(response => response.json())
         // .then(signedupHandler)
     }
-    // signedupHandler(response) {
+    signedupHandler(response) {
     //     // console.log(response) // this to see the token
     //     if {typeof response.user != 'undefined') {
     //         sessionStorage.setItem('phetchly', response.user.api_token)
