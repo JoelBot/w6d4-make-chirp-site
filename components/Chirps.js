@@ -15,10 +15,33 @@ class Chirps extends Component {
     }
 
     componentWillMount() {
-        console.log('mounting')
+        // console.log('mounting')
     }
     componentDidMount() {
-        console.log('mounted')
+        // console.log('mounted')
+
+        fetch('https://nameless-cove-75673.herokuapp.com/posts?api_token=')
+        .then(response => response.json())
+        .then((response) => {
+            console.log(response) // checking what we get back
+
+            let updatedChirps = this.state.chirps
+
+            // var ChirpItems = response.posts.map((chirp, i) => {
+            //     return <Chirp data={chirp} key={i}/>})
+                // var ChirpsStink = response.posts.forEach(chirp) {
+                    updatedChirps.push({
+                        text: response.posts.chirp
+                    })
+                    // console.log(chirp)
+                // }
+
+                // console.log(ChirpItems[0].chirp)
+            // updatedChirps.push({
+            //     chirps: ChirpItems.post
+            // })
+            this.updateChirps(updatedChirps)
+        })
     }
 
     typing(e) {
@@ -41,11 +64,12 @@ class Chirps extends Component {
             newChirp: '',
             chirps: updatedChirps
         })
-        console.log(updatedChirps)
+        // console.log(updatedChirps)
         // localStorage.setItem('todos', JSON.stringify(updatedTodos))
     }
 
     render() {
+
         var ChirpItems = this.state.chirps.map((chirp, i) => {
             return <Chirp data={chirp} key={i}/>})
 
