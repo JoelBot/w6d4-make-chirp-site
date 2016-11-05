@@ -7,21 +7,18 @@ class Chirps extends Component {
         this.typing = this.typing.bind(this) // This is boilerplate stuff for react that binds this
         this.enter = this.enter.bind(this)
         this.updateChirps = this.updateChirps.bind(this)
+        // this.setLocalStorage = this.setLocalStorage.bind(this)
+
         this.state = {
             newChirp: '',
             chirps: []
         }
     }
     componentDidMount() {
-        fetch('https://nameless-cove-75673.herokuapp.com/posts?api_token=')
+        fetch('https://nameless-cove-75673.herokuapp.com/posts')
         .then(response => response.json())
-        .then((response) => {
-            var ChirpItems = response.posts.map((chirp, i) => {
-                return <Chirp data={chirp} key={i}/>  })
-            this.setState({
-                chirps: response.posts[0].chirp
-            })
-        })
+        .then(response => this.setState({chirps: response.posts}))  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
+
     }
 
     typing(e) {
@@ -33,17 +30,30 @@ class Chirps extends Component {
         if (e.key === 'Enter') {
             let updatedChirps = this.state.chirps
             updatedChirps.push({
-                text: e.target.value
+                chirp: e.target.value
             })
             this.updateChirps(updatedChirps)
         }
     }
 
     updateChirps(updatedChirps) {
-        this.setState({
-            newChirp: '',
-            chirps: updatedChirps
+        fetch('https://nameless-cove-75673.herokuapp.com/posts', {
+          body: JSON.stringify({
+            chirp: this.state.newChirp,
+            api_token: sessionStorage.getItem('chirp_token')
+          }),
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
+        .then(response => response.json())
+        .then(response => console.log())
+        // .then(render())
+        // this.setState({
+        //     newChirp: '',
+        //     chirps: updatedChirps
+        // })
         // console.log(updatedChirps)
     }
 
