@@ -14,7 +14,7 @@ class Avatar extends React.Component {
 
           console.log(response)
           this.setState({
-            avatar: response.user.avatar
+            avatar: 'https://nameless-cove-75673.herokuapp.com/' + response.user.avatar
           })
         })
     }
