@@ -11,7 +11,7 @@ class Chirps extends Component {
         this.state = {
             newChirp: '',
             chirps: [],
-            name: '',
+            email: '',
             avatar: '' // chirps list that have already been added
         }
     }
@@ -46,12 +46,12 @@ class Chirps extends Component {
                 avatar = chirp.avatar
             }
 
-            var name = chirp.name
+            var email = chirp.email
             var chirp = chirp.chirp
 
             return {
                 avatar: avatar,
-                name: JSON.stringify(name),
+                email: email,
                 chirp: chirp
             }
         })
@@ -73,6 +73,7 @@ class Chirps extends Component {
             })
             this.updateChirps(updatedChirps)
             console.log(this.state)
+            window.location.reload()
         }
     }
 
@@ -101,8 +102,8 @@ class Chirps extends Component {
     render() {
 
         // console.log(this.state.avatar)
-        var ChirpItems = this.state.chirps.map((chirp, i) => <div key={i}>
-            <li className="list-group-item chirpitem">
+        var ChirpItems = this.state.chirps.map((chirp, i) => (
+            <li className="list-group-item chirpitem" key={i}>
             <div className="chirp-item-top-section">
                 <img className ="av-logo" src={chirp.avatar} alt="" />
                 <span><b>{chirp.email}</b></span>
@@ -111,8 +112,7 @@ class Chirps extends Component {
             <span>{chirp.chirp}</span>
             </div>
             </li>
-        </div>
-        )
+        ))
 
         // var ChirpItems = this.state.chirps.map((chirp, i) => {
         //     return <Chirp data={chirp} key={i}/>})
