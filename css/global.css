@@ -40,8 +40,16 @@ body {
   border-radius: 10px;
 }
 
-.chirpitem {
+.chirpitem div:last-child {
   margin-top: 10px;
+  max-width: 200px;
+}
+
+.chirpitem div:last-child #chirp-length {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: auto;
+  width: 50%;
 }
 
 .av-logo {
