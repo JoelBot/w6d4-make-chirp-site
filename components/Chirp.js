@@ -4,7 +4,7 @@ import React, { Component } from 'react' // Ask what this is if you remember to
 const Chirp = (props) => <li className="list-group-item chirpitem">
                             <div className="chirp-item-top-section">
                                 <img className ="av-logo" src="" alt="" />
-                                <span><b>Name</b></span>
+                                <span><b>{props.data.user.name}</b></span>
                             </div>
                             <div>
                             <span>{props.data.chirp}</span>
