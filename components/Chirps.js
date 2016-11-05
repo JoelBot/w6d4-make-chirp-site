@@ -108,7 +108,7 @@ class Chirps extends Component {
                 <span><b>{chirp.email}</b></span>
             </div>
             <div>
-            <span>{chirp.chirp}</span>
+            <span id="chirp-length">{chirp.chirp}</span>
             </div>
             </li>
         </div>
