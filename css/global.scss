@@ -10,7 +10,9 @@ img{
     width: 100%;
 }
 body{
-    background-color: #F5F8FA;
+    // background-color: #F5F8FA;
+    background-image: url(/img/birrd2.jpg);
+
 }
 .navbar{
     img{
@@ -46,4 +48,14 @@ body{
 }
 .chirp-item-top-section{
     display: inline-block;
+}
+#chirp{
+    h1{
+        font-size: 120px;
+        color: white;
+        opacity: .5;
+    }
+    h4{
+        color: white;
+    }
 }
