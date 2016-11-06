@@ -43,11 +43,11 @@ class Chirps extends Component {
         var chirps = response.posts.map((chirp) => {
 
             var avatar = ''
-            if (chirp.avatar === undefined) {
+            if (chirp.user.avatar === undefined) {
                 avatar = 'http://robohash.org/random'
             }
             else {
-                avatar = chirp.avatar
+                avatar = 'https://nameless-cove-75673.herokuapp.com/' + chirp.user.avatar
             }
             // console.log(chirp.created_at)
             // var email = chirp.email
@@ -58,7 +58,7 @@ class Chirps extends Component {
 
             return {
                 avatar: avatar,
-                email: chirp.email,
+                email: chirp.user.email,
                 chirp: chirp.chirp,
                 created_at: moment(chirp.created_at).fromNow()
             }
