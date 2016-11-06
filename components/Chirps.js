@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+    import React, { Component } from 'react'
 import Chirp from '../components/Chirp'
 import moment from 'moment'
 
@@ -39,7 +39,7 @@ class Chirps extends Component {
     }
 
     updateState(response){
-        console.log(response)
+        // console.log(response)
         var chirps = response.posts.map((chirp) => {
 
             var avatar = ''

@@ -13,8 +13,17 @@ class Avatar extends React.Component {
         .then((response) => {
 
           console.log(response)
+
+          var avatar = ''
+          if (response.user.avatar === null) {
+              avatar = 'http://robohash.org/random'
+          }
+          else {
+              avatar = 'https://nameless-cove-75673.herokuapp.com/' + response.user.avatar
+          }
+
           this.setState({
-            avatar: 'https://nameless-cove-75673.herokuapp.com/' + response.user.avatar
+            avatar: avatar
           })
         })
     }
