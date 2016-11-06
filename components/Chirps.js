@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Chirp from '../components/Chirp'
+import moment from 'moment'
 
 class Chirps extends Component {
     constructor(props) {
@@ -35,7 +36,6 @@ class Chirps extends Component {
         .then(response => response.json())
         .then(this.updateState)  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
         // .then(response => this.setState({chirps: response.posts}))  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
-        this.render
     }
 
     updateState(response){
@@ -60,7 +60,7 @@ class Chirps extends Component {
                 avatar: avatar,
                 email: chirp.email,
                 chirp: chirp.chirp,
-                created_at: chirp.created_at
+                created_at: moment(chirp.created_at).fromNow()
             }
             // console.log(this.state.avatar)
         })
@@ -77,7 +77,7 @@ class Chirps extends Component {
     enter(e) {
         if (e.key === 'Enter') {
             let updatedChirps = this.state.chirps
-            updatedChirps.push({
+            updatedChirps.unshift({
                 chirp: e.target.value
             })
             this.updateChirps(updatedChirps)
@@ -120,7 +120,7 @@ class Chirps extends Component {
             <div className="chirp-item-top-section">
                 <img className ="av-logo" src={chirp.avatar} alt="" />
                 <span><b>{chirp.email}</b></span>
-                <span>  at: {chirp.created_at}</span>
+                <span>  {chirp.created_at}</span>
             </div>
             <div>
             <p id="chirp-length">{chirp.chirp}</p>
