@@ -68,6 +68,10 @@ body{
 .chirp-item-top-section{
     display: inline-block;
 }
+#timeline {
+    overflow: scroll;
+    height: 90vh;
+}
 #chirp{
     // h1{
     //     font-size: 120px;

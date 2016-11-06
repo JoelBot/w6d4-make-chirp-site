@@ -10,7 +10,7 @@ class MyProfile extends React.Component {
         super(props)
     }
     render(){
-        
+
         return <div>
                 <Nav />
                 <div className="container middle-left-section">
@@ -28,7 +28,7 @@ class MyProfile extends React.Component {
                             </div>
                         </div>
             <br />
-            <div className="col-sm-6">
+            <div id="timeline" className="col-sm-6">
                 <Chirps />
 
             </div>

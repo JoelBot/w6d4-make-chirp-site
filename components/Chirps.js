@@ -12,7 +12,8 @@ class Chirps extends Component {
             newChirp: '',
             chirps: [],
             email: '',
-            avatar: '' // chirps list that have already been added
+            avatar: '',
+            created_at: '' // chirps list that have already been added
         }
     }
 
@@ -30,14 +31,17 @@ class Chirps extends Component {
         //     name: response.user.name
         //   })
         // })
-        fetch('https://nameless-cove-75673.herokuapp.com/posts')
+        fetch('https://nameless-cove-75673.herokuapp.com/posts?api_token=' + sessionStorage.getItem('api_token'))
         .then(response => response.json())
         .then(this.updateState)  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
         // .then(response => this.setState({chirps: response.posts}))  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
+        this.render
     }
 
     updateState(response){
+        console.log(response)
         var chirps = response.posts.map((chirp) => {
+
             var avatar = ''
             if (chirp.avatar === undefined) {
                 avatar = 'http://robohash.org/random'
@@ -45,20 +49,25 @@ class Chirps extends Component {
             else {
                 avatar = chirp.avatar
             }
+            // console.log(chirp.created_at)
+            // var email = chirp.email
+            // var chirp = chirp.chirp
+            // var created_at = chirp.created_at
 
-            var email = chirp.email
-            var chirp = chirp.chirp
+            // console.log(chirp.created_at)
 
             return {
                 avatar: avatar,
-                email: email,
-                chirp: chirp
+                email: chirp.email,
+                chirp: chirp.chirp,
+                created_at: chirp.created_at
             }
+            // console.log(this.state.avatar)
         })
         this.setState({
             chirps: chirps
         })
-        console.log(this.state.chirps)
+        // console.log(this.state.chirps)
     }
     typing(e) {
         this.setState({
@@ -72,8 +81,12 @@ class Chirps extends Component {
                 chirp: e.target.value
             })
             this.updateChirps(updatedChirps)
-            console.log(this.state)
-            window.location.reload()
+            // console.log(this.state)
+            this.setState({
+                newChirp: ''
+            })
+            // this.render
+            // window.location.reload(
         }
     }
 
@@ -107,6 +120,7 @@ class Chirps extends Component {
             <div className="chirp-item-top-section">
                 <img className ="av-logo" src={chirp.avatar} alt="" />
                 <span><b>{chirp.email}</b></span>
+                <span>  at: {chirp.created_at}</span>
             </div>
             <div>
             <p id="chirp-length">{chirp.chirp}</p>
@@ -117,7 +131,7 @@ class Chirps extends Component {
         // var ChirpItems = this.state.chirps.map((chirp, i) => {
         //     return <Chirp data={chirp} key={i}/>})
 
-            console.log(ChirpItems)
+            // console.log(ChirpItems)
         return (
             <div className="input-group form-control col-sm-12">
                 <input type="text" className="form-control" value={this.state.newChirp} onChange={this.typing} onKeyPress={this.enter} />
