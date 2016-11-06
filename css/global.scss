@@ -23,6 +23,16 @@ body{
         padding: 7px;
     }
 }
+#chirpTextBox {
+    border-radius: 15px;
+    z-index: 1;
+    box-shadow: 6px 12px 25px 5px;
+    margin-bottom: 20px;
+    height: 42px;
+}
+li {
+    margin: 7px;
+}
 #homePage{
     margin-top: 80px;
     font-family: 'Pacifico', cursive;

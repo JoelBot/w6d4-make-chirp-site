@@ -119,8 +119,8 @@ class Chirps extends Component {
             <li className="list-group-item chirpitem" key={i}>
             <div className="chirp-item-top-section">
                 <img className ="av-logo" src={chirp.avatar} alt="" />
-                <span><b>{chirp.email}</b></span>
-                <span>  {chirp.created_at}</span>
+                <span>  <b>{chirp.email}</b></span>
+                <span>  posted {chirp.created_at}</span>
             </div>
             <div>
             <p id="chirp-length">{chirp.chirp}</p>
@@ -133,9 +133,9 @@ class Chirps extends Component {
 
             // console.log(ChirpItems)
         return (
-            <div className="input-group form-control col-sm-12">
-                <input type="text" className="form-control" value={this.state.newChirp} onChange={this.typing} onKeyPress={this.enter} />
-                <ul className="list-group">
+            <div className="col-sm-12">
+                <input type="text" id="chirpTextBox" className="form-control" placeholder="Chirp here!" value={this.state.newChirp} onChange={this.typing} onKeyPress={this.enter} />
+                <ul className="list-group well">
                     {ChirpItems}
                 </ul>
             </div>
