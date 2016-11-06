@@ -43,7 +43,7 @@ class Chirps extends Component {
         var chirps = response.posts.map((chirp) => {
 
             var avatar = ''
-            if (chirp.user.avatar === undefined) {
+            if (chirp.user.avatar === null) {
                 avatar = 'http://robohash.org/random'
             }
             else {
