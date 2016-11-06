@@ -74,7 +74,7 @@ body {
   display: inline-block;
 }
 
-#timeline {
+.timeline {
   overflow: scroll;
   height: 90vh;
 }
