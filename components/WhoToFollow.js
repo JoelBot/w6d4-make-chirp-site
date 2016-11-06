@@ -3,16 +3,26 @@ import React from 'react'
 class WhoToFollow extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            users: [],
+        }
     }
+    componentDidMount(){
+        fetch('https://nameless-cove-75673.herokuapp.com/users')
+        .then(response => response.json())
+        .then((response) => {this.setState({users: response.users})})
+    }
+
     render(){
+        var usersEmail = this.state.users.map((user, i) => (
+            <li className="list-group-item" key={i}>
+                {user.email}
+            </li>
+        ))
         return <div>
-        <ul className="list-group">
+        <ul className="list-group ">
           <li className="list-group-item"><h3>Who to follow</h3></li>
-          <li className="list-group-item">@Dwayne Johnson</li>
-          <li className="list-group-item">@Kobe Bryant</li>
-          <li className="list-group-item">@Michael Jordan</li>
-          <li className="list-group-item">@Lebron James</li>
-          <li className="list-group-item">@The Iron Yard</li>
+          {usersEmail}
         </ul>
         </div>
     }

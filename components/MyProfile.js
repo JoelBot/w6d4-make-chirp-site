@@ -28,12 +28,12 @@ class MyProfile extends React.Component {
                             </div>
                         </div>
             <br />
-            <div id="timeline" className="col-sm-6">
+            <div className="col-sm-6 timeline">
                 <Chirps />
 
             </div>
 
-              <div className="col-sm-3 well">
+              <div className="col-sm-3 well timeline">
                 <WhoToFollow />
               </div>
             </div>
