@@ -16,6 +16,7 @@ class WhoToFollow extends React.Component {
     render(){
         var usersEmail = this.state.users.map((user, i) => (
             <li className="list-group-item" key={i}>
+            <button className="btn btn-success">Follow</button>
                 {user.email}
             </li>
         ))
