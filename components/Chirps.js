@@ -119,7 +119,7 @@ class Chirps extends Component {
 
             console.log(ChirpItems)
         return (
-            <div className="input-group form-control">
+            <div className="input-group form-control col-sm-12">
                 <input type="text" className="form-control" value={this.state.newChirp} onChange={this.typing} onKeyPress={this.enter} />
                 <ul className="list-group">
                     {ChirpItems}
