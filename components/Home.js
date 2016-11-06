@@ -14,7 +14,8 @@ class Home extends React.Component {
         return  <div>
                     <div id="homePage" className="row">
                         <div className="col-sm-12 text-center">
-                            <img src="./img/chirp-logo.png" alt="Logo Pic" />
+                            <h1>Welcome to Chirp!</h1>
+                            <h3>Come chirp with us!</h3>
                         </div>
                         <div className="col-sm-6 text-center">
                             <Link to="/signin">
