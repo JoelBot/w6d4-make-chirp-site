@@ -10,6 +10,7 @@ class MyProfile extends React.Component {
         super(props)
     }
     render(){
+        
         return <div>
                 <Nav />
                 <div className="container middle-left-section">

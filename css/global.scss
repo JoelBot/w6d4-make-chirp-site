@@ -11,8 +11,8 @@ img{
 }
 body{
     // background-color: #F5F8FA;
-
     background-image: url(/img/birrd2.jpg);
+
 
 }
 .navbar{
@@ -25,12 +25,24 @@ body{
 }
 #homePage{
     margin-top: 80px;
+    font-family: 'Pacifico', cursive;
     img{
         width: 50%;
         margin-left: 180px;
     }
     button{
         margin-top: 30px;
+    }
+    h1{
+        font-size: 120px;
+        color: white;
+        opacity: .5;
+    }
+    h3{
+        font-size: 50px;
+        padding-top: 150px;
+        color: white;
+        opacity: .6;
     }
 }
 .middle-left-section{
@@ -46,8 +58,8 @@ body{
     #chirp-length{
         text-overflow: ellipsis;
         white-space: nowrap;
-        overflow:  auto;
-        width: 50%;
+        overflow:  hidden;
+        width: 250%;
     }
 }
 .av-logo{
@@ -57,14 +69,15 @@ body{
     display: inline-block;
 }
 #chirp{
-    h1{
-        font-size: 120px;
-        color: white;
-        opacity: .5;
-    }
-    h4{
-        padding-top: 150px;
-        color: white;
-        opacity: .6;
-    }
+    // h1{
+    //     font-size: 120px;
+    //     color: white;
+    //     opacity: .5;
+    // }
+    // h3{
+    //     font-size: 50px;
+    //     padding-top: 150px;
+    //     color: white;
+    //     opacity: .6;
+    // }
 }
