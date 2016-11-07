@@ -11,10 +11,10 @@ const path = window.location.href.includes(('github') ? '/w6d4-make-chirp-site/'
 
 ReactDOM.render(
     <Router history={browserHistory}>
-        <Route path="/" component={Home} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/signin" component={Signin} />
-        <Route path="/myprofile" component={MyProfile} />
+        <Route path="github.io/w6d4-make-chirp-site/" component={Home} />
+        <Route path="github.io/w6d4-make-chirp-site/signup" component={Signup} />
+        <Route path="github.io/w6d4-make-chirp-site/signin" component={Signin} />
+        <Route path="github.io/w6d4-make-chirp-site/myprofile" component={MyProfile} />
     </Router>
     ,document.getElementById('chirp')
 )
