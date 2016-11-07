@@ -27175,7 +27175,7 @@
 	                        { className: 'col-sm-6 text-center' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/signin') },
+	                            { to: '/signin' },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signin', type: 'button', className: 'btn btn-primary btn-block' },
@@ -27188,7 +27188,7 @@
 	                        { className: 'col-sm-6' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/signup') },
+	                            { to: '/signup' },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signup', type: 'button', className: 'btn btn-success btn-block' },
@@ -27501,7 +27501,7 @@
 	                                    { className: 'col-sm-6' },
 	                                    _react2.default.createElement(
 	                                        _reactRouter.Link,
-	                                        { to: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/') },
+	                                        { to: '/' },
 	                                        _react2.default.createElement(
 	                                            'button',
 	                                            { type: 'button', id: 'cancelSignup', className: 'btn btn-primary btn-block' },
@@ -27650,7 +27650,7 @@
 	              { className: 'col-sm-6' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/') },
+	                { to: '/' },
 	                _react2.default.createElement(
 	                  'button',
 	                  { type: 'button', className: 'btn btn-primary' },
