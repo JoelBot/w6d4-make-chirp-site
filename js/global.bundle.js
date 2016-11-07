@@ -83,10 +83,10 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.browserHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/'), component: _Home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/signup'), component: _Signup2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/signin'), component: _Signin2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/myprofile'), component: _MyProfile2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _Signup2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/signin', component: _Signin2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/myprofile', component: _MyProfile2.default })
 	), document.getElementById('chirp'));
 
 /***/ },
@@ -27501,7 +27501,7 @@
 	                                    { className: 'col-sm-6' },
 	                                    _react2.default.createElement(
 	                                        _reactRouter.Link,
-	                                        { to: '{window.location.href.includes((\'github\') ? \'/w6d4-make-chirp-site/\' : \'/\')}' },
+	                                        { to: window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/') },
 	                                        _react2.default.createElement(
 	                                            'button',
 	                                            { type: 'button', id: 'cancelSignup', className: 'btn btn-primary btn-block' },
