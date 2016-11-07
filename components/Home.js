@@ -18,12 +18,12 @@ class Home extends React.Component {
                             <h3>Come chirp with us!</h3>
                         </div>
                         <div className="col-sm-6 text-center">
-                            <Link to="github.io/w6d4-make-chirp-site/signin">
+                            <Link to={window.location.href.includes(('github') ? '/w6d4-make-chirp-site/' : '/signin')}>
                             <button id="signin" type="button" className="btn btn-primary btn-block" >SignIn</button>
                             </Link>
                         </div>
                         <div className="col-sm-6">
-                            <Link to="github.io/w6d4-make-chirp-site/signup">
+                            <Link to={window.location.href.includes(('github') ? '/w6d4-make-chirp-site/' : '/signup')}>
                             <button id="signup" type="button" className="btn btn-success btn-block" >SignUp</button>
                             </Link>
                         </div>
