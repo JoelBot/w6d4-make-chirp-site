@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 class Signin extends React.Component {
     constructor(props) {
@@ -29,15 +30,16 @@ class Signin extends React.Component {
       sessionStorage.setItem('chirp_token', response.user.api_token)
       window.location.href = '/myprofile'
     }
-
     enter(e) {
         if (e.key === 'Enter') {
             this.signinHandler()
         }
     }
-
     render() {
         return  <div className="row">
+                <div className="col-sm-12 text-center">
+                <h1 className="coolFont">Welcome to Chirp!</h1>
+                </div>
                 <div className="col-sm-6 col-sm-offset-3">
                     <div className="form-group">
                     <label>Email</label>
@@ -50,8 +52,10 @@ class Signin extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-sm-6">
-                    <a href="#">Forget Password?</a>
-                  </div>
+                  <Link to="/">
+                    <button type="button" className="btn btn-primary">Cancel</button>
+                    </Link>
+                    </div>
                   <div className="col-sm-6 text-right">
                     <button id="login" type="button" className="btn btn-success" onClick={this.signinHandler}>Login</button>
                   </div>
@@ -60,5 +64,4 @@ class Signin extends React.Component {
             </div>
     }
 }
-
 export default Signin

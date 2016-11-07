@@ -8,6 +8,7 @@ import Nav from '../components/Nav'
 import MyProfile from '../components/MyProfile'
 
 
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={Home} />
