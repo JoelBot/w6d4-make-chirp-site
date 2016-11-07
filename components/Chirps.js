@@ -22,16 +22,6 @@ class Chirps extends Component {
         // console.log('mounting')
     }
     componentDidMount() {
-        // fetch('https://nameless-cove-75673.herokuapp.com/user/me?api_token=' + sessionStorage.getItem('chirp_token'))
-        // .then(response => response.json())
-        // .then((response) => {
-        //
-        //   console.log(response)
-        //   this.setState({
-        //     avatar: 'https://nameless-cove-75673.herokuapp.com/' + response.user.avatar,
-        //     name: response.user.name
-        //   })
-        // })
         fetch('https://nameless-cove-75673.herokuapp.com/posts?api_token=' + sessionStorage.getItem('api_token'))
         .then(response => response.json())
         .then(this.updateState)  // Sets state each API chirp get from /posts.  will need to post all chirps to backend so this will pick them up and display them.
@@ -102,7 +92,7 @@ class Chirps extends Component {
           }
         })
         .then(response => response.json())
-        .then(response => console.log())
+        // .then(response => console.log())
         // .then(render())
         // this.setState({
         //     newChirp: '',
