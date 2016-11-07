@@ -8,7 +8,7 @@ import Nav from '../components/Nav'
 import MyProfile from '../components/MyProfile'
 
 
-const path = window.location.href.includes(('github') ? '/w6d4-make-chirp-site/' : '/')
+// const path = window.location.href.includes(('github') ? '/w6d4-make-chirp-site/' : '/')
 
 ReactDOM.render(
     <Router history={browserHistory}>
