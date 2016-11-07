@@ -30,6 +30,13 @@ li {
   margin: 7px;
 }
 
+.coolFont {
+  font-family: 'Pacifico', cursive;
+  font-size: 120px;
+  color: white;
+  opacity: .5;
+}
+
 #homePage {
   margin-top: 80px;
   font-family: 'Pacifico', cursive;

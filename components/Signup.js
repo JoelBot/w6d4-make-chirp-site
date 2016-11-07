@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 class Signup extends React.Component {
     constructor(props) {
@@ -43,12 +44,12 @@ class Signup extends React.Component {
             })
         }
     }
-
-    //
-
     render() {
         return <div>
         <div className="row">
+        <div className="col-sm-12 text-center">
+        <h1 className="coolFont">Welcome to Chirp!</h1>
+        </div>
         <div className="col-sm-6 col-sm-offset-3">
 
         <div className="form-group">
@@ -73,7 +74,9 @@ class Signup extends React.Component {
         <button type="button" onClick={this.signupPost} id="signup" className="btn btn-success btn-block" >Signup!</button>
         </div>
         <div className="col-sm-6">
+        <Link to="/">
         <button type="button" id="cancelSignup" className="btn btn-primary btn-block">Cancel</button>
+        </Link>
         </div>
         </div>
         </div>
