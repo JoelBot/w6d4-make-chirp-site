@@ -8,6 +8,22 @@ import Chirps from '../components/Chirps'
 class MyProfile extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            Followers: '',
+            Following: '',
+            Chirps: '',
+        }
+    }
+    componentDidMount(){
+        fetch('https://nameless-cove-75673.herokuapp.com/user/me?api_token=' + sessionStorage.getItem('chirp_token'))
+        .then(response => response.json())
+        .then((response) => {
+            this.setState({
+                Followers: response.user.followers_count,
+                Following: response.user.followees_count,
+                Chirps: response.user.posts.length
+            })
+        })
     }
     render(){
 
@@ -18,21 +34,18 @@ class MyProfile extends React.Component {
                         <div className="col-sm-3">
                             <Avatar />
                             <div className="well">
-                                <h3>#Trending TV Shows</h3>
+                                <h3>Chirp Stats</h3>
                                 <ul>
-                                    <li>#Game of Thrones</li>
-                                    <li>#Ballers</li>
-                                    <li>#Walking Dead</li>
-                                    <li>#Westworld</li>
+                                    <li>Followers:<span className="badge">{this.state.Followers}</span></li>
+                                    <li>Following:<span className="badge">{this.state.Following}</span></li>
+                                    <li>Chirps:<span className="badge">{this.state.Chirps}</span></li>
                                 </ul>
                             </div>
                         </div>
             <br />
             <div className="col-sm-6 timeline">
                 <Chirps />
-
             </div>
-
               <div className="col-sm-3 well timeline">
                 <WhoToFollow />
               </div>

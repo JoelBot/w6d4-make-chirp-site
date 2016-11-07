@@ -17,8 +17,7 @@ class Nav extends React.Component {
             <img  src="./img/logo.png" alt="" /></a>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li className="active"><a href="#">Home <span className="sr-only">(current)</span></a></li>
-                <li><a href="#">Messages</a></li>
+                <li className="active"><a href="/myprofile">Home <span className="sr-only">(current)</span></a></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li><button type="button" className="btn btn-danger" onClick={this.signOut}>Logout</button></li>
