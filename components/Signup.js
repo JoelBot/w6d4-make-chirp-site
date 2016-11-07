@@ -74,7 +74,7 @@ class Signup extends React.Component {
         <button type="button" onClick={this.signupPost} id="signup" className="btn btn-success btn-block" >Signup!</button>
         </div>
         <div className="col-sm-6">
-        <Link to="/">
+        <Link to="github.io/w6d4-make-chirp-site/">
         <button type="button" id="cancelSignup" className="btn btn-primary btn-block">Cancel</button>
         </Link>
         </div>

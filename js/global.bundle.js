@@ -78,6 +78,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var path = window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/');
+
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.browserHistory },
@@ -27173,7 +27175,7 @@
 	                        { className: 'col-sm-6 text-center' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: '/signin' },
+	                            { to: 'github.io/w6d4-make-chirp-site/signin' },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signin', type: 'button', className: 'btn btn-primary btn-block' },
@@ -27186,7 +27188,7 @@
 	                        { className: 'col-sm-6' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: '/signup' },
+	                            { to: 'github.io/w6d4-make-chirp-site/signup' },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signup', type: 'button', className: 'btn btn-success btn-block' },
@@ -27346,6 +27348,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27406,9 +27410,6 @@
 	                });
 	            }
 	        }
-
-	        //
-
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -27420,6 +27421,15 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-12 text-center' },
+	                        _react2.default.createElement(
+	                            'h1',
+	                            { className: 'coolFont' },
+	                            'Welcome to Chirp!'
+	                        )
+	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'col-sm-6 col-sm-offset-3' },
@@ -27490,9 +27500,13 @@
 	                                    'div',
 	                                    { className: 'col-sm-6' },
 	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'button', id: 'cancelSignup', className: 'btn btn-primary btn-block' },
-	                                        'Cancel'
+	                                        _reactRouter.Link,
+	                                        { to: 'github.io/w6d4-make-chirp-site/' },
+	                                        _react2.default.createElement(
+	                                            'button',
+	                                            { type: 'button', id: 'cancelSignup', className: 'btn btn-primary btn-block' },
+	                                            'Cancel'
+	                                        )
 	                                    )
 	                                )
 	                            )
@@ -27523,6 +27537,8 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27592,6 +27608,15 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
+	          { className: 'col-sm-12 text-center' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'coolFont' },
+	            'Welcome to Chirp!'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
 	          { className: 'col-sm-6 col-sm-offset-3' },
 	          _react2.default.createElement(
 	            'div',
@@ -27624,9 +27649,13 @@
 	              'div',
 	              { className: 'col-sm-6' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                'Forget Password?'
+	                _reactRouter.Link,
+	                { to: 'github.io/w6d4-make-chirp-site/' },
+	                _react2.default.createElement(
+	                  'button',
+	                  { type: 'button', className: 'btn btn-primary' },
+	                  'Cancel'
+	                )
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -27883,6 +27912,8 @@
 
 	        var _this = _possibleConstructorReturn(this, (WhoToFollow.__proto__ || Object.getPrototypeOf(WhoToFollow)).call(this, props));
 
+	        _this.follow = _this.follow.bind(_this);
+	        _this.idToken = _this.idToken.bind(_this);
 	        _this.state = {
 	            users: []
 	        };
@@ -27901,15 +27932,42 @@
 	            });
 	        }
 	    }, {
+	        key: 'follow',
+	        value: function follow() {
+	            fetch('https://nameless-cove-75673.herokuapp.com/follow?api_token=' + sessionStorage.getItem('chirp_token'))
+	            // {
+	            //     body: JSON.stringify({
+	            //      id: data,
+	            //      api_token: sessionStorage.getItem('chirp_token')
+	            // }),
+	            // method: 'GET',
+	            // headers: {
+	            //     'Content-Type': 'application/json'
+	            // }
+	            //     }
+	            // )
+	            .then(function (response) {
+	                return response.json();
+	            }).then(this.idToken);
+	        }
+	    }, {
+	        key: 'idToken',
+	        value: function idToken(response) {
+	            console.log(response.user.id);
+	            sessionStorage.setItem('id_token', response.user.id);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this3 = this;
+
 	            var usersEmail = this.state.users.map(function (user, i) {
 	                return _react2.default.createElement(
 	                    'li',
 	                    { className: 'list-group-item', key: i },
 	                    _react2.default.createElement(
 	                        'button',
-	                        { className: 'btn btn-success' },
+	                        { className: 'btn btn-success', onClick: _this3.follow },
 	                        'Follow'
 	                    ),
 	                    user.email
