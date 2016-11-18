@@ -78,15 +78,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var path = window.location.href.includes('github' ? '/w6d4-make-chirp-site/' : '/');
+	window.path = window.location.href.includes('github') ? '/w6d4-make-chirp-site' : '';
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.browserHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _Signup2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/signin', component: _Signin2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/myprofile', component: _MyProfile2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: path + "/", component: _Home2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: path + "/signup", component: _Signup2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: path + "/signin", component: _Signin2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: path + "/myprofile", component: _MyProfile2.default })
 	), document.getElementById('chirp'));
 
 /***/ },
@@ -27175,7 +27175,7 @@
 	                        { className: 'col-sm-6 text-center' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: '/signin' },
+	                            { to: path + "/signin" },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signin', type: 'button', className: 'btn btn-primary btn-block' },
@@ -27188,7 +27188,7 @@
 	                        { className: 'col-sm-6' },
 	                        _react2.default.createElement(
 	                            _reactRouter.Link,
-	                            { to: '/signup' },
+	                            { to: path + "/signup" },
 	                            _react2.default.createElement(
 	                                'button',
 	                                { id: 'signup', type: 'button', className: 'btn btn-success btn-block' },
@@ -27275,22 +27275,13 @@
 	                { className: 'active' },
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: '#' },
+	                  { href: '/myprofile' },
 	                  'Home ',
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'sr-only' },
 	                    '(current)'
 	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  'a',
-	                  { href: '#' },
-	                  'Messages'
 	                )
 	              )
 	            ),
@@ -27501,7 +27492,7 @@
 	                                    { className: 'col-sm-6' },
 	                                    _react2.default.createElement(
 	                                        _reactRouter.Link,
-	                                        { to: '/' },
+	                                        { to: path + "/" },
 	                                        _react2.default.createElement(
 	                                            'button',
 	                                            { type: 'button', id: 'cancelSignup', className: 'btn btn-primary btn-block' },
@@ -27650,7 +27641,7 @@
 	              { className: 'col-sm-6' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/' },
+	                { to: path + "/" },
 	                _react2.default.createElement(
 	                  'button',
 	                  { type: 'button', className: 'btn btn-primary' },
@@ -27726,10 +27717,32 @@
 	    function MyProfile(props) {
 	        _classCallCheck(this, MyProfile);
 
-	        return _possibleConstructorReturn(this, (MyProfile.__proto__ || Object.getPrototypeOf(MyProfile)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (MyProfile.__proto__ || Object.getPrototypeOf(MyProfile)).call(this, props));
+
+	        _this.state = {
+	            Followers: '',
+	            Following: '',
+	            Chirps: ''
+	        };
+	        return _this;
 	    }
 
 	    _createClass(MyProfile, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+
+	            fetch('https://nameless-cove-75673.herokuapp.com/user/me?api_token=' + sessionStorage.getItem('chirp_token')).then(function (response) {
+	                return response.json();
+	            }).then(function (response) {
+	                _this2.setState({
+	                    Followers: response.user.followers_count,
+	                    Following: response.user.followees_count,
+	                    Chirps: response.user.posts.length
+	                });
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 
@@ -27753,7 +27766,7 @@
 	                                _react2.default.createElement(
 	                                    'h3',
 	                                    null,
-	                                    '#Trending TV Shows'
+	                                    'Chirp Stats'
 	                                ),
 	                                _react2.default.createElement(
 	                                    'ul',
@@ -27761,22 +27774,32 @@
 	                                    _react2.default.createElement(
 	                                        'li',
 	                                        null,
-	                                        '#Game of Thrones'
+	                                        'Followers:',
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'badge' },
+	                                            this.state.Followers
+	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'li',
 	                                        null,
-	                                        '#Ballers'
+	                                        'Following:',
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'badge' },
+	                                            this.state.Following
+	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'li',
 	                                        null,
-	                                        '#Walking Dead'
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'li',
-	                                        null,
-	                                        '#Westworld'
+	                                        'Chirps:',
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'badge' },
+	                                            this.state.Chirps
+	                                        )
 	                                    )
 	                                )
 	                            )
@@ -27836,7 +27859,8 @@
 	        var _this = _possibleConstructorReturn(this, (Avatar.__proto__ || Object.getPrototypeOf(Avatar)).call(this, props));
 
 	        _this.state = {
-	            avatar: 'http://robohash.org/mani'
+	            avatar: 'http://robohash.org/mani',
+	            name: ''
 	        };
 	        return _this;
 	    }
@@ -27849,18 +27873,16 @@
 	            fetch('https://nameless-cove-75673.herokuapp.com/user/me?api_token=' + sessionStorage.getItem('chirp_token')).then(function (response) {
 	                return response.json();
 	            }).then(function (response) {
-
-	                console.log(response);
-
+	                //   console.log(response)
 	                var avatar = '';
 	                if (response.user.avatar === null) {
 	                    avatar = 'http://robohash.org/random';
 	                } else {
 	                    avatar = 'https://nameless-cove-75673.herokuapp.com/' + response.user.avatar;
 	                }
-
 	                _this2.setState({
-	                    avatar: avatar
+	                    avatar: avatar,
+	                    name: response.user.name
 	                });
 	            });
 	        }
@@ -27869,8 +27891,14 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'well' },
-	                _react2.default.createElement('img', { src: this.state.avatar, alt: '' })
+	                { className: 'well text-center' },
+	                _react2.default.createElement('img', { src: this.state.avatar, alt: '' }),
+	                _react2.default.createElement(
+	                    'h4',
+	                    null,
+	                    '@',
+	                    this.state.name
+	                )
 	            );
 	        }
 	    }]);
@@ -27913,7 +27941,6 @@
 	        var _this = _possibleConstructorReturn(this, (WhoToFollow.__proto__ || Object.getPrototypeOf(WhoToFollow)).call(this, props));
 
 	        _this.follow = _this.follow.bind(_this);
-	        _this.idToken = _this.idToken.bind(_this);
 	        _this.state = {
 	            users: []
 	        };
@@ -27925,41 +27952,32 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            fetch('https://nameless-cove-75673.herokuapp.com/users').then(function (response) {
+	            fetch('https://nameless-cove-75673.herokuapp.com/users?api_token=' + sessionStorage.getItem('chirp_token')).then(function (response) {
 	                return response.json();
 	            }).then(function (response) {
-	                _this2.setState({ users: response.users });
+	                return _this2.setState({ users: response.users });
 	            });
 	        }
 	    }, {
 	        key: 'follow',
-	        value: function follow() {
-	            fetch('https://nameless-cove-75673.herokuapp.com/follow?api_token=' + sessionStorage.getItem('chirp_token'))
-	            // {
-	            //     body: JSON.stringify({
-	            //      id: data,
-	            //      api_token: sessionStorage.getItem('chirp_token')
-	            // }),
-	            // method: 'GET',
-	            // headers: {
-	            //     'Content-Type': 'application/json'
-	            // }
-	            //     }
-	            // )
-	            .then(function (response) {
+	        value: function follow(id, userIndex) {
+	            var _this3 = this;
+
+	            var users = this.state.users;
+	            var endPoint = users[userIndex].following ? '/unfollow' : '/follow';
+	            fetch('https://nameless-cove-75673.herokuapp.com' + endPoint + '?api_token=' + sessionStorage.getItem('chirp_token') + '&id=' + id).then(function (response) {
 	                return response.json();
-	            }).then(this.idToken);
-	        }
-	    }, {
-	        key: 'idToken',
-	        value: function idToken(response) {
-	            console.log(response.user.id);
-	            sessionStorage.setItem('id_token', response.user.id);
+	            }).then(function (response) {
+	                users[userIndex].following = !users[userIndex].following;
+	                _this3.setState({
+	                    users: users
+	                });
+	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            var usersEmail = this.state.users.map(function (user, i) {
 	                return _react2.default.createElement(
@@ -27967,8 +27985,10 @@
 	                    { className: 'list-group-item', key: i },
 	                    _react2.default.createElement(
 	                        'button',
-	                        { className: 'btn btn-success', onClick: _this3.follow },
-	                        'Follow'
+	                        { onClick: function onClick() {
+	                                return _this4.follow(user.id, i);
+	                            }, className: user.following ? "btn btn-danger" : "btn btn-success" },
+	                        user.following ? 'Unfollow' : 'Follow'
 	                    ),
 	                    user.email
 	                );

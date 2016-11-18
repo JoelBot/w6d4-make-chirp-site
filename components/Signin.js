@@ -52,7 +52,7 @@ class Signin extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-sm-6">
-                  <Link to="/">
+                  <Link to={path + "/"}>
                     <button type="button" className="btn btn-primary">Cancel</button>
                     </Link>
                     </div>

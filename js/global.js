@@ -8,14 +8,14 @@ import Nav from '../components/Nav'
 import MyProfile from '../components/MyProfile'
 
 
-// const path = window.location.href.includes(('github') ? '/w6d4-make-chirp-site/' : '/')
+window.path = window.location.href.includes('github') ? '/w6d4-make-chirp-site' : ''
 
 ReactDOM.render(
     <Router history={browserHistory}>
-        <Route path="/" component={Home} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/signin" component={Signin} />
-        <Route path="/myprofile" component={MyProfile} />
+        <Route path={path + "/"} component={Home} />
+        <Route path={path + "/signup"} component={Signup} />
+        <Route path={path + "/signin"} component={Signin} />
+        <Route path={path + "/myprofile"} component={MyProfile} />
     </Router>
     ,document.getElementById('chirp')
 )
