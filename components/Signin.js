@@ -28,7 +28,7 @@ class Signin extends React.Component {
     }
     signedinHandler(response) {
       sessionStorage.setItem('chirp_token', response.user.api_token)
-      window.location.href = '/myprofile'
+      window.location.href = path +'/myprofile'
     }
     enter(e) {
         if (e.key === 'Enter') {
