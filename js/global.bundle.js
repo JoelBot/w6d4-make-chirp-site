@@ -78,7 +78,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+
 	window.path = window.location.href.includes('github') ? '/w6d4-make-chirp-site' : '';
+
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
