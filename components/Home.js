@@ -18,12 +18,12 @@ class Home extends React.Component {
                             <h3>Come chirp with us!</h3>
                         </div>
                         <div className="col-sm-6 text-center">
-                            <Link to="/signin">
+                            <Link to={path + "/signin"}>
                             <button id="signin" type="button" className="btn btn-primary btn-block" >SignIn</button>
                             </Link>
                         </div>
                         <div className="col-sm-6">
-                            <Link to="/signup">
+                            <Link to={path + "/signup"}>
                             <button id="signup" type="button" className="btn btn-success btn-block" >SignUp</button>
                             </Link>
                         </div>
